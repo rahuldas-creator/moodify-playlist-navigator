@@ -12,8 +12,8 @@ const MOOD_PLAYLISTS: Record<string, { spotify: string[], youtube: string[] }> =
       "37i9dQZF1DX3rxVfibe1L0", // Mood Booster
     ],
     youtube: [
-      "PLvLX2y1VZ-tEmqtj_wAIqozQVRrTXUAQP", // Happy Hits
-      "PLhGO2bt0EkwvRUioaJMLxrMNhU44uRWgJ", // Happy Vibes
+      "PL9tY0BWXOZFuFEG_GtOBZ8-8wbkH-NVAr", // Happy Hits
+      "PL4fGSI1pDJn5rWibGCp3Cu9Soe9bhwbVW", // Happy Vibes
     ]
   },
   sad: {
@@ -23,7 +23,7 @@ const MOOD_PLAYLISTS: Record<string, { spotify: string[], youtube: string[] }> =
       "37i9dQZF1DX3YSRoSdA634", // Life Sucks
     ],
     youtube: [
-      "PLw-VjHDlEOgs2BGzBnWIYa6NRr-0C9ZxO", // Sad Songs
+      "PL5D7fjEEs6ka_zveOFuEeXk6dOiLcjpuZ", // Sad Songs
       "PLQog_FHUHAFUDDQPOTeAWSHwzFV1Zz5PX", // Melancholy Music
     ]
   },
@@ -71,6 +71,72 @@ const MOOD_PLAYLISTS: Record<string, { spotify: string[], youtube: string[] }> =
       "PL6NdkXsPL07KiewBDpJC1dFvxEubnNOp1", // Focus Sounds
     ]
   },
+  romantic: {
+    spotify: [
+      "37i9dQZF1DX50QitC6Oqtn", // Love Songs
+      "37i9dQZF1DWVqfgj8NZEp1", // Date Night
+      "37i9dQZF1DX5IDTimEWoTd", // Romantic Ballads
+    ],
+    youtube: [
+      "PLhZRfuBIYMihF40Tgac4jTU1P9f2uCOCc", // Love Songs Collection
+      "PLQog_FHUHAFUyeMptDfRHO9JvC_YP0HTq", // Romantic Playlist
+    ]
+  },
+  relaxed: {
+    spotify: [
+      "37i9dQZF1DX8Uebhn9wzrS", // Chill Tracks
+      "37i9dQZF1DX4WYpdgoIcn6", // Chill Hits
+      "37i9dQZF1DXcCnTAt8CfNe", // Relaxing Jazz
+    ],
+    youtube: [
+      "PL6fP6X1dwBs3TFnKNryJoTiSuEbFjYBXW", // Relaxing Music
+      "PLQkQfzsIUwRZ_66UD9BEbCuP5oKUvXNKp", // Relaxing Sounds
+    ]
+  },
+  groovy: {
+    spotify: [
+      "37i9dQZF1DX8a1tdzq5tbM", // Dance Classics
+      "37i9dQZF1DWUwJ0RFwrgQP", // Funk & Disco
+      "37i9dQZF1DX1MUPbVKMgJE", // Groove Theory
+    ],
+    youtube: [
+      "PL_Qj3gHpLtBRTjQF2L5f6UxZmXrUOBEhk", // Funk & Groove
+      "PL9qmexT8H6JU0Ye-wPo2NHr2RdcETK7Wn", // Disco Classics
+    ]
+  },
+  melancholic: {
+    spotify: [
+      "37i9dQZF1DX0pJuHwL7dxj", // Rainy Day
+      "37i9dQZF1DWSiZVO2J6WeI", // Melancholy Instrumentals
+      "37i9dQZF1DX7gIoKXt0gmx", // Dreamy Vibes
+    ],
+    youtube: [
+      "PLHwn8cKbXi2ksWVQi2VtWGj7gN-yFPhZv", // Melancholic Music
+      "PLnYPm_BVLlNa2MLkhw9L-gGTsGnhAjhkB", // Rainy Day Music
+    ]
+  },
+  intense: {
+    spotify: [
+      "37i9dQZF1DWWJOmJ7nRx0C", // Heavy Queens
+      "37i9dQZF1DX05r4Oy3Ln97", // Rock Classics
+      "37i9dQZF1DWXIcbzpLauPS", // Metal Essentials
+    ],
+    youtube: [
+      "PL6Lt9p1lIRZ31aK8i6G4KDLxeT9betDcA", // Rock Anthems
+      "PLhQCJTkrHOwSX8LUnIMgaTq3chP1tiTut", // Heavy Metal Playlist
+    ]
+  },
+  creative: {
+    spotify: [
+      "37i9dQZF1DX56qfiUZBncF", // Creativity Boost
+      "37i9dQZF1DX9OZisIoJQhG", // Instrumental Madness
+      "37i9dQZF1DXdwTUxmGKrdN", // Peaceful Meditation
+    ],
+    youtube: [
+      "PLsH9HfoJ67QzTXCgQ4-05CBd46DgjCY0r", // Creative Music
+      "PLVT9Yp_BFyp2MJ6Xz_PSo_0nSnJAOVbqJ", // Creative Flow
+    ]
+  },
 };
 
 // Mock response data for playlists
@@ -114,7 +180,7 @@ const mockPlaylists: Record<string, Playlist[]> = {
       images: [{ url: "https://i.ytimg.com/vi/ZbZSe6N_BXs/maxresdefault.jpg" }],
       external_urls: { spotify: "#" },
       source: "youtube",
-      youtubeId: "PLvLX2y1VZ-tEmqtj_wAIqozQVRrTXUAQP",
+      youtubeId: "PL9tY0BWXOZFuFEG_GtOBZ8-8wbkH-NVAr",
       language: "mixed",
       yearRange: [2005, 2024]
     },
@@ -125,7 +191,7 @@ const mockPlaylists: Record<string, Playlist[]> = {
       images: [{ url: "https://i.ytimg.com/vi/q0hyYWKXF0Q/maxresdefault.jpg" }],
       external_urls: { spotify: "#" },
       source: "youtube",
-      youtubeId: "PLhGO2bt0EkwvRUioaJMLxrMNhU44uRWgJ",
+      youtubeId: "PL4fGSI1pDJn5rWibGCp3Cu9Soe9bhwbVW",
       language: "english",
       yearRange: [2010, 2023]
     }
@@ -345,6 +411,154 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [2000, 2024]
     }
   ],
+  romantic: [
+    {
+      id: "37i9dQZF1DX50QitC6Oqtn",
+      name: "Love Songs",
+      description: "Romantic tracks for you and your loved one.",
+      images: [{ url: "https://i.scdn.co/image/ab67706f00000003f52b9d5f914e83d8ae98e2e3" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX50QitC6Oqtn" },
+      source: "spotify",
+      language: "english",
+      yearRange: [1980, 2024]
+    },
+    {
+      id: "37i9dQZF1DWVqfgj8NZEp1",
+      name: "Date Night",
+      description: "The perfect date night soundtrack.",
+      images: [{ url: "https://i.scdn.co/image/ab67706f00000003f7cb20f8cc40bc40ca5977b2" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DWVqfgj8NZEp1" },
+      source: "spotify",
+      language: "english",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "youtube-romantic-1",
+      name: "Love Songs Collection",
+      description: "Beautiful love songs to set the mood",
+      images: [{ url: "https://i.ytimg.com/vi/rtOvBOTyX00/maxresdefault.jpg" }],
+      external_urls: { spotify: "#" },
+      source: "youtube",
+      youtubeId: "PLhZRfuBIYMihF40Tgac4jTU1P9f2uCOCc",
+      language: "english",
+      yearRange: [1970, 2022]
+    }
+  ],
+  relaxed: [
+    {
+      id: "37i9dQZF1DX8Uebhn9wzrS",
+      name: "Chill Tracks",
+      description: "Unwind to these simple, mellow tunes.",
+      images: [{ url: "https://i.scdn.co/image/ab67706f000000034d26d431869cabfc53c67d8e" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS" },
+      source: "spotify",
+      language: "english",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "youtube-relaxed-1",
+      name: "Relaxing Music",
+      description: "Peaceful tunes to help you unwind",
+      images: [{ url: "https://i.ytimg.com/vi/77ZozI0rw7w/maxresdefault.jpg" }],
+      external_urls: { spotify: "#" },
+      source: "youtube",
+      youtubeId: "PL6fP6X1dwBs3TFnKNryJoTiSuEbFjYBXW",
+      language: "instrumental",
+      yearRange: [2000, 2024]
+    }
+  ],
+  groovy: [
+    {
+      id: "37i9dQZF1DX8a1tdzq5tbM",
+      name: "Dance Classics",
+      description: "Classic dance tracks that defined an era.",
+      images: [{ url: "https://i.scdn.co/image/ab67706f00000003bd0e19e810bb4b55ab164a95" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX8a1tdzq5tbM" },
+      source: "spotify",
+      language: "english",
+      yearRange: [1970, 2000]
+    },
+    {
+      id: "youtube-groovy-1",
+      name: "Funk & Groove Playlist",
+      description: "Get your groove on with these funky beats",
+      images: [{ url: "https://i.ytimg.com/vi/qchPLaiKocI/maxresdefault.jpg" }],
+      external_urls: { spotify: "#" },
+      source: "youtube",
+      youtubeId: "PL_Qj3gHpLtBRTjQF2L5f6UxZmXrUOBEhk",
+      language: "english",
+      yearRange: [1970, 1990]
+    }
+  ],
+  melancholic: [
+    {
+      id: "37i9dQZF1DX0pJuHwL7dxj",
+      name: "Rainy Day",
+      description: "Melancholic tunes for a rainy day.",
+      images: [{ url: "https://i.scdn.co/image/ab67706f00000003a12a16dce55927c928bc51c9" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0pJuHwL7dxj" },
+      source: "spotify",
+      language: "english",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "youtube-melancholic-1",
+      name: "Melancholic Music",
+      description: "Beautifully sad songs for reflective moments",
+      images: [{ url: "https://i.ytimg.com/vi/iCZ-5wcEAjM/maxresdefault.jpg" }],
+      external_urls: { spotify: "#" },
+      source: "youtube",
+      youtubeId: "PLHwn8cKbXi2ksWVQi2VtWGj7gN-yFPhZv",
+      language: "mixed",
+      yearRange: [1990, 2022]
+    }
+  ],
+  intense: [
+    {
+      id: "37i9dQZF1DWWJOmJ7nRx0C",
+      name: "Heavy Queens",
+      description: "The queens of metal and hard rock.",
+      images: [{ url: "https://i.scdn.co/image/ab67706f00000003b6e502c185bc9d7f7084ac22" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DWWJOmJ7nRx0C" },
+      source: "spotify",
+      language: "english",
+      yearRange: [1980, 2024]
+    },
+    {
+      id: "youtube-intense-1",
+      name: "Rock Anthems",
+      description: "Epic rock tracks that will get your energy up",
+      images: [{ url: "https://i.ytimg.com/vi/qGaOlfmX8rQ/maxresdefault.jpg" }],
+      external_urls: { spotify: "#" },
+      source: "youtube",
+      youtubeId: "PL6Lt9p1lIRZ31aK8i6G4KDLxeT9betDcA",
+      language: "english",
+      yearRange: [1970, 2010]
+    }
+  ],
+  creative: [
+    {
+      id: "37i9dQZF1DX56qfiUZBncF",
+      name: "Creativity Boost",
+      description: "Music to boost your creative energy.",
+      images: [{ url: "https://i.scdn.co/image/ab67706f00000003ca5a7517156021292e5663a6" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX56qfiUZBncF" },
+      source: "spotify",
+      language: "instrumental",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "youtube-creative-1",
+      name: "Creative Music Flow",
+      description: "Enhance your creativity with these inspiring tracks",
+      images: [{ url: "https://i.ytimg.com/vi/khOffh_6oCs/maxresdefault.jpg" }],
+      external_urls: { spotify: "#" },
+      source: "youtube",
+      youtubeId: "PLVT9Yp_BFyp2MJ6Xz_PSo_0nSnJAOVbqJ",
+      language: "instrumental",
+      yearRange: [2010, 2024]
+    }
+  ]
 };
 
 // Function to fetch playlists based on mood

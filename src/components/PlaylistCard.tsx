@@ -35,6 +35,12 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ playlist, mood }) => {
       case "energized": return "bg-gradient-energized";
       case "calm": return "bg-gradient-calm";
       case "focused": return "bg-gradient-focused";
+      case "romantic": return "bg-gradient-romantic";
+      case "relaxed": return "bg-gradient-relaxed";
+      case "groovy": return "bg-gradient-groovy";
+      case "melancholic": return "bg-gradient-melancholic";
+      case "intense": return "bg-gradient-intense";
+      case "creative": return "bg-gradient-creative";
       default: return "bg-gradient-to-r from-primary to-accent";
     }
   };
@@ -78,7 +84,7 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ playlist, mood }) => {
         <div className="mt-4">
           <Button asChild className={`w-full group ${isYoutube ? 'bg-red-600 hover:bg-red-700' : ''}`}>
             <a 
-              href={isYoutube ? `https://www.youtube.com/playlist?list=${playlist.youtubeId}` : playlist.external_urls.spotify} 
+              href={isYoutube && playlist.youtubeId ? `https://www.youtube.com/playlist?list=${playlist.youtubeId}` : playlist.external_urls.spotify} 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2"

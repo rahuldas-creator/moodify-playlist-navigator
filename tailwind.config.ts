@@ -69,7 +69,13 @@ export default {
 					nostalgic: "#9B5DE5",
 					energized: "#EF476F",
 					calm: "#06D6A0",
-					focused: "#073B4C"
+					focused: "#073B4C",
+					romantic: "#e84a5f",
+					relaxed: "#5aaa95",
+					groovy: "#f9c74f",
+					melancholic: "#577590",
+					intense: "#d62828",
+					creative: "#8ac926"
 				}
 			},
 			borderRadius: {
@@ -123,7 +129,13 @@ export default {
 				'gradient-nostalgic': 'linear-gradient(135deg, #9B5DE5 0%, #D3B3FC 100%)',
 				'gradient-energized': 'linear-gradient(135deg, #EF476F 0%, #FFA7BD 100%)',
 				'gradient-calm': 'linear-gradient(135deg, #06D6A0 0%, #B3FCE4 100%)',
-				'gradient-focused': 'linear-gradient(135deg, #073B4C 0%, #40798C 100%)'
+				'gradient-focused': 'linear-gradient(135deg, #073B4C 0%, #40798C 100%)',
+				'gradient-romantic': 'linear-gradient(135deg, #e84a5f 0%, #ff847c 100%)',
+				'gradient-relaxed': 'linear-gradient(135deg, #5aaa95 0%, #a8e6cf 100%)',
+				'gradient-groovy': 'linear-gradient(135deg, #f9c74f 0%, #faedca 100%)',
+				'gradient-melancholic': 'linear-gradient(135deg, #577590 0%, #a3cef1 100%)',
+				'gradient-intense': 'linear-gradient(135deg, #d62828 0%, #f77f00 100%)',
+				'gradient-creative': 'linear-gradient(135deg, #8ac926 0%, #e9f5db 100%)'
 			}
 		}
 	},
