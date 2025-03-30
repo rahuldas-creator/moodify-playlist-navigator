@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				mood: {
+					happy: "#FFD166",
+					sad: "#118AB2",
+					nostalgic: "#9B5DE5",
+					energized: "#EF476F",
+					calm: "#06D6A0",
+					focused: "#073B4C"
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,37 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-soft': {
+					'0%, 100%': {
+						opacity: '1'
+					},
+					'50%': {
+						opacity: '0.8'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-happy': 'linear-gradient(135deg, #FFD166 0%, #FFECB3 100%)',
+				'gradient-sad': 'linear-gradient(135deg, #118AB2 0%, #A2D5F2 100%)',
+				'gradient-nostalgic': 'linear-gradient(135deg, #9B5DE5 0%, #D3B3FC 100%)',
+				'gradient-energized': 'linear-gradient(135deg, #EF476F 0%, #FFA7BD 100%)',
+				'gradient-calm': 'linear-gradient(135deg, #06D6A0 0%, #B3FCE4 100%)',
+				'gradient-focused': 'linear-gradient(135deg, #073B4C 0%, #40798C 100%)'
 			}
 		}
 	},
