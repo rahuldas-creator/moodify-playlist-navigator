@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Loader from "@/components/Loader";
 import PlaylistCard, { Playlist } from "@/components/PlaylistCard";
 import { fetchPlaylistsByMood } from "@/utils/spotify";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const Results = () => {
   const { mood = "" } = useParams<{ mood: string }>();

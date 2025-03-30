@@ -1,5 +1,5 @@
 
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 import { Playlist } from "@/components/PlaylistCard";
 
 // Hardcoded playlist IDs for each mood
