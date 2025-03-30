@@ -33,6 +33,10 @@ const Results = () => {
         setLoading(true);
         setError(null);
         const data = await fetchPlaylistsByMood(mood);
+        
+        // Add console logs to debug language data
+        console.log("Loaded playlists:", data);
+        
         setAllPlaylists(data);
         setFilteredPlaylists(data);
       } catch (err) {
@@ -51,10 +55,27 @@ const Results = () => {
   useEffect(() => {
     if (allPlaylists.length === 0) return;
 
+    // Log the current filters for debugging
+    console.log("Filtering with:", filters);
+    
     const filtered = allPlaylists.filter((playlist) => {
-      // Filter by language
-      if (filters.language !== "all" && playlist.language !== filters.language) {
-        return false;
+      // Filter by language - fixed to properly handle all language options
+      if (filters.language !== "all") {
+        // Check if the playlist language matches exactly the selected language
+        if (!playlist.language || playlist.language.toLowerCase() !== filters.language.toLowerCase()) {
+          // If the playlist has mixed languages and user selected a specific language, don't show it
+          if (playlist.language === "mixed" && filters.language !== "mixed") {
+            return false;
+          }
+          // If user selected mixed languages, still show mixed language playlists
+          if (filters.language === "mixed" && playlist.language !== "mixed") {
+            return false;
+          }
+          // For all other cases where languages don't match exactly
+          if (playlist.language !== filters.language) {
+            return false;
+          }
+        }
       }
 
       // Filter by year range
@@ -69,6 +90,9 @@ const Results = () => {
       return true;
     });
 
+    // Log filtered results for debugging
+    console.log("Filtered playlists:", filtered);
+    
     setFilteredPlaylists(filtered);
   }, [allPlaylists, filters]);
 

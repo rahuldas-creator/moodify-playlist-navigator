@@ -52,10 +52,19 @@ const PlaylistFilters: React.FC<PlaylistFiltersProps> = ({ onFilterChange }) => 
             <SelectContent>
               <SelectItem value="all">All Languages</SelectItem>
               <SelectItem value="english">English</SelectItem>
+              <SelectItem value="hindi">Hindi</SelectItem>
+              <SelectItem value="tamil">Tamil</SelectItem>
+              <SelectItem value="telugu">Telugu</SelectItem>
+              <SelectItem value="punjabi">Punjabi</SelectItem>
+              <SelectItem value="bengali">Bengali</SelectItem>
+              <SelectItem value="marathi">Marathi</SelectItem>
+              <SelectItem value="gujarati">Gujarati</SelectItem>
+              <SelectItem value="kannada">Kannada</SelectItem>
+              <SelectItem value="malayalam">Malayalam</SelectItem>
               <SelectItem value="spanish">Spanish</SelectItem>
               <SelectItem value="french">French</SelectItem>
               <SelectItem value="korean">Korean</SelectItem>
-              <SelectItem value="hindi">Hindi</SelectItem>
+              <SelectItem value="instrumental">Instrumental</SelectItem>
               <SelectItem value="mixed">Mixed Languages</SelectItem>
             </SelectContent>
           </Select>
