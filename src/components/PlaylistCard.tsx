@@ -27,6 +27,11 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ playlist, mood }) => {
   
   const isYoutube = playlist.source === "youtube";
   
+  // Create the YouTube URL using the youtubeId
+  const youtubeUrl = playlist.youtubeId 
+    ? `https://www.youtube.com/playlist?list=${playlist.youtubeId}` 
+    : "#";
+  
   const getGradientClass = () => {
     switch (mood) {
       case "happy": return "bg-gradient-happy";
@@ -84,7 +89,7 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ playlist, mood }) => {
         <div className="mt-4">
           <Button asChild className={`w-full group ${isYoutube ? 'bg-red-600 hover:bg-red-700' : ''}`}>
             <a 
-              href={isYoutube && playlist.youtubeId ? `https://www.youtube.com/playlist?list=${playlist.youtubeId}` : playlist.external_urls.spotify} 
+              href={isYoutube ? youtubeUrl : playlist.external_urls.spotify} 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2"

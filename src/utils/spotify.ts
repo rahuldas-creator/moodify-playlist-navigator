@@ -154,6 +154,26 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [2010, 2024]
     },
     {
+      id: "hindi-happy-1",
+      name: "Bollywood Happy Songs",
+      description: "Feel-good Hindi tracks to brighten your day!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da8470ceb2de6dc87c01966f5d55" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "tamil-happy-1",
+      name: "Tamil Feel Good Mix",
+      description: "Upbeat Tamil songs for a happy mood!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84e41a0bf103951598cdf3775e" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX5q67ZpWyRrZ" },
+      source: "spotify",
+      language: "tamil",
+      yearRange: [2000, 2024]
+    },
+    {
       id: "37i9dQZF1DX9XIFQuFvzM4",
       name: "Feelin' Good",
       description: "Feel good with this positively timeless playlist!",
@@ -164,14 +184,24 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [1990, 2015]
     },
     {
-      id: "37i9dQZF1DX3rxVfibe1L0",
-      name: "Mood Booster",
-      description: "Get happy with today's dose of feel-good songs!",
-      images: [{ url: "https://i.scdn.co/image/ab67706f00000003bd0e19e810bb4b55ab164a95" }],
-      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX3rxVfibe1L0" },
+      id: "telugu-happy-1",
+      name: "Telugu Happy Beats",
+      description: "Cheerful Telugu songs that will make you dance!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da845a67c5d9b5db302c8853c2c9" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX7qIoG1ODZ9i" },
       source: "spotify",
-      language: "english",
-      yearRange: [2015, 2024]
+      language: "telugu",
+      yearRange: [2005, 2024]
+    },
+    {
+      id: "instrumental-happy-1",
+      name: "Happy Instrumental Vibes",
+      description: "No lyrics, just good vibes!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84a5c5f4158f3e0e5e3bf2a642" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX2Nc3ZBhZ5Xa" },
+      source: "spotify",
+      language: "instrumental",
+      yearRange: [2000, 2024]
     },
     {
       id: "youtube-happy-1",
@@ -185,15 +215,14 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [2005, 2024]
     },
     {
-      id: "youtube-happy-2",
-      name: "Happy Vibes Playlist",
-      description: "Music to boost your mood instantly",
-      images: [{ url: "https://i.ytimg.com/vi/q0hyYWKXF0Q/maxresdefault.jpg" }],
-      external_urls: { spotify: "#" },
-      source: "youtube",
-      youtubeId: "PL4fGSI1pDJn5rWibGCp3Cu9Soe9bhwbVW",
-      language: "english",
-      yearRange: [2010, 2023]
+      id: "punjabi-happy-1",
+      name: "Punjabi Party Hits",
+      description: "Energetic Punjabi tracks to get the party started!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da844ed058efea1198a6e7674e7e" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX5cZuAHLNjGz" },
+      source: "spotify",
+      language: "punjabi",
+      yearRange: [2010, 2024]
     }
   ],
   sad: [
@@ -208,6 +237,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [2000, 2024]
     },
     {
+      id: "hindi-sad-1",
+      name: "Hindi Sad Songs",
+      description: "Emotional Hindi tracks for when you're feeling down.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da8415b9a060429a8204512936a3" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX4hpot8sYF9m" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [1990, 2024]
+    },
+    {
       id: "37i9dQZF1DX4sWSpwq3LiO",
       name: "Sad Beats",
       description: "Electronic sad songs.",
@@ -216,6 +255,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       source: "spotify",
       language: "english",
       yearRange: [2000, 2024]
+    },
+    {
+      id: "tamil-sad-1",
+      name: "Tamil Melancholy",
+      description: "Soulful sad songs in Tamil.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84f7c54758c1585c56ef8e3d6c" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX7iCz9nLk" },
+      source: "spotify",
+      language: "tamil",
+      yearRange: [1995, 2024]
     },
     {
       id: "37i9dQZF1DX3YSRoSdA634",
@@ -251,6 +300,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [1980, 1989]
     },
     {
+      id: "hindi-nostalgic-1",
+      name: "Bollywood Classics",
+      description: "Timeless Hindi songs from the golden era.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da8420a33068046a63748a12891b" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [1950, 1990]
+    },
+    {
       id: "37i9dQZF1DXbTxeAdrVG2l",
       name: "All Out 90s",
       description: "The biggest songs of the 1990s.",
@@ -259,6 +318,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       source: "spotify",
       language: "english",
       yearRange: [1990, 1999]
+    },
+    {
+      id: "tamil-nostalgic-1",
+      name: "Tamil Evergreen Hits",
+      description: "Classic Tamil songs that stand the test of time.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da846a3f1601c0e8b0d07ff295ef" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX7iCz9nLr" },
+      source: "spotify",
+      language: "tamil",
+      yearRange: [1970, 2000]
     },
     {
       id: "37i9dQZF1DX4UtSsGT1Sbe",
@@ -294,6 +363,26 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [2000, 2024]
     },
     {
+      id: "hindi-energized-1",
+      name: "Bollywood Dance Hits",
+      description: "High-energy Hindi tracks to get you moving!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84d7be499591ac0f0b18a7060d" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "punjabi-energized-1",
+      name: "Punjabi Dance Floor",
+      description: "Bhangra beats to get your energy up!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84febd09603ae7d37f638a7c68" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX5cZuAHLNjGz" },
+      source: "spotify",
+      language: "punjabi",
+      yearRange: [2010, 2024]
+    },
+    {
       id: "37i9dQZF1DX76Wlfdnj7AP",
       name: "Beast Mode",
       description: "Get your beast mode on!",
@@ -302,6 +391,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       source: "spotify",
       language: "english",
       yearRange: [2000, 2024]
+    },
+    {
+      id: "tamil-energized-1",
+      name: "Tamil Dance Beats",
+      description: "High-energy Tamil tracks for workouts and parties!",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84afc6820ca92039c470115243" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX7iCz9nLe" },
+      source: "spotify",
+      language: "tamil",
+      yearRange: [2010, 2024]
     },
     {
       id: "37i9dQZF1DX32NsLKyzScr",
@@ -333,8 +432,28 @@ const mockPlaylists: Record<string, Playlist[]> = {
       images: [{ url: "https://i.scdn.co/image/ab67706f00000003ca5a7517156021292e5663a6" }],
       external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DWZqd5JICZI0u" },
       source: "spotify",
-      language: "english",
+      language: "instrumental",
       yearRange: [2000, 2024]
+    },
+    {
+      id: "hindi-calm-1",
+      name: "Hindi Calm Meditation",
+      description: "Soothing Hindi tracks for meditation and relaxation.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84dc448b0f29865965c52989f2" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "carnatic-calm-1",
+      name: "Carnatic Classical",
+      description: "Peaceful South Indian classical music.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84bfbe4283dde2b29989ab00a7" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX2oc9IQAT8wt" },
+      source: "spotify",
+      language: "kannada",
+      yearRange: [1980, 2024]
     },
     {
       id: "37i9dQZF1DWYoYGBbGKach",
@@ -343,7 +462,17 @@ const mockPlaylists: Record<string, Playlist[]> = {
       images: [{ url: "https://i.scdn.co/image/ab67706f00000003a59f8930fa2da3ea6f60eab0" }],
       external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DWYoYGBbGKach" },
       source: "spotify",
-      language: "english",
+      language: "instrumental",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "malayalam-calm-1",
+      name: "Malayalam Peaceful Melodies",
+      description: "Soothing Malayalam tracks for a peaceful mind.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84d5a80204134965877a0c92fd" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX2yvmlOdMYzV" },
+      source: "spotify",
+      language: "malayalam",
       yearRange: [2000, 2024]
     },
     {
@@ -353,7 +482,7 @@ const mockPlaylists: Record<string, Playlist[]> = {
       images: [{ url: "https://i.scdn.co/image/ab67706f00000003bb0ecdf6e4aafb0fc9d81f13" }],
       external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX3Ogo9pFvBkY" },
       source: "spotify",
-      language: "english",
+      language: "instrumental",
       yearRange: [2000, 2024]
     },
     {
@@ -364,7 +493,7 @@ const mockPlaylists: Record<string, Playlist[]> = {
       external_urls: { spotify: "#" },
       source: "youtube",
       youtubeId: "PLMIbmfP_9vb8BCxRoraJpoo4q1yMFg4CE",
-      language: "english",
+      language: "instrumental",
       yearRange: [2000, 2024]
     }
   ],
@@ -376,8 +505,18 @@ const mockPlaylists: Record<string, Playlist[]> = {
       images: [{ url: "https://i.scdn.co/image/ab67706f000000030e2c570b28d9d070b6078b2f" }],
       external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DWZeKCadgRdKQ" },
       source: "spotify",
-      language: "english",
+      language: "instrumental",
       yearRange: [2000, 2024]
+    },
+    {
+      id: "hindustani-focus-1",
+      name: "Hindustani Classical Focus",
+      description: "Traditional North Indian classical for deep concentration.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84f6e29878b9fb8fb12dcaa932" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX6aTaZa0K6VA" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [1950, 2024]
     },
     {
       id: "37i9dQZF1DX8NTLI2TtZa6",
@@ -387,6 +526,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX8NTLI2TtZa6" },
       source: "spotify",
       language: "english",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "bengali-focus-1",
+      name: "Bengali Study Music",
+      description: "Soothing Bengali tracks to help you focus on your work.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da8409ecc2867d4d5892c438e8f1" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX6aTaZa0K6VA" },
+      source: "spotify",
+      language: "bengali",
       yearRange: [2000, 2024]
     },
     {
@@ -406,8 +555,8 @@ const mockPlaylists: Record<string, Playlist[]> = {
       images: [{ url: "https://i.ytimg.com/vi/9876543210/maxresdefault.jpg" }],
       external_urls: { spotify: "#" },
       source: "youtube",
-      youtubeId: "PL6NdkXsPL07KiewBDpJC1dFvxEubnNOp1",
-      language: "english",
+      youtubeId: "PLci1IcmDP8clClSRopvKMWGjCi_CFvDg4",
+      language: "instrumental",
       yearRange: [2000, 2024]
     }
   ],
@@ -423,6 +572,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [1980, 2024]
     },
     {
+      id: "hindi-romantic-1",
+      name: "Bollywood Love Songs",
+      description: "The most romantic Hindi songs of all time.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da8448d688b8d53d23f9293dce98" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [1980, 2024]
+    },
+    {
       id: "37i9dQZF1DWVqfgj8NZEp1",
       name: "Date Night",
       description: "The perfect date night soundtrack.",
@@ -431,6 +590,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       source: "spotify",
       language: "english",
       yearRange: [2000, 2024]
+    },
+    {
+      id: "tamil-romantic-1",
+      name: "Tamil Love Melodies",
+      description: "Beautiful romantic songs from Tamil cinema.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da8478d77b64e14e159629418ef3" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX7iCz9nLp" },
+      source: "spotify",
+      language: "tamil",
+      yearRange: [1990, 2024]
     },
     {
       id: "youtube-romantic-1",
@@ -442,6 +611,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       youtubeId: "PLhZRfuBIYMihF40Tgac4jTU1P9f2uCOCc",
       language: "english",
       yearRange: [1970, 2022]
+    },
+    {
+      id: "marathi-romantic-1",
+      name: "Marathi Romantic Hits",
+      description: "Sweet love songs in Marathi to warm your heart.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84c4e901ca5f38329cda1f18c6" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DWYfwRoQdwNf0" },
+      source: "spotify",
+      language: "marathi",
+      yearRange: [2000, 2024]
     }
   ],
   relaxed: [
@@ -453,6 +632,26 @@ const mockPlaylists: Record<string, Playlist[]> = {
       external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS" },
       source: "spotify",
       language: "english",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "hindi-relaxed-1",
+      name: "Hindi Chill Vibes",
+      description: "Relaxing Hindi songs to unwind after a long day.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da8459d15b88a85b8e48aef0061b" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [2000, 2024]
+    },
+    {
+      id: "gujarati-relaxed-1",
+      name: "Gujarati Peaceful Melodies",
+      description: "Relaxing tunes in Gujarati to soothe your mind.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da843be4a7888301bc01c63e12de" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DWYfwRoQdwNf0" },
+      source: "spotify",
+      language: "gujarati",
       yearRange: [2000, 2024]
     },
     {
@@ -479,6 +678,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       yearRange: [1970, 2000]
     },
     {
+      id: "hindi-groovy-1",
+      name: "Bollywood Dance Classics",
+      description: "Classic Hindi dance numbers that get everyone moving.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84e9c243d1a1a1d6d627481f3f" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [1970, 2000]
+    },
+    {
       id: "youtube-groovy-1",
       name: "Funk & Groove Playlist",
       description: "Get your groove on with these funky beats",
@@ -488,6 +697,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       youtubeId: "PL_Qj3gHpLtBRTjQF2L5f6UxZmXrUOBEhk",
       language: "english",
       yearRange: [1970, 1990]
+    },
+    {
+      id: "telugu-groovy-1",
+      name: "Telugu Dance Hits",
+      description: "Get your groove on with these Telugu dance numbers.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da844a48295128b48c792d205d78" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX7qIoG1ODZ9i" },
+      source: "spotify",
+      language: "telugu",
+      yearRange: [1990, 2024]
     }
   ],
   melancholic: [
@@ -500,6 +719,26 @@ const mockPlaylists: Record<string, Playlist[]> = {
       source: "spotify",
       language: "english",
       yearRange: [2000, 2024]
+    },
+    {
+      id: "hindi-melancholic-1",
+      name: "Hindi Melancholy",
+      description: "Beautiful sad Hindi songs for contemplative moments.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da841ddccd2b081f82b04179c6a9" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [1990, 2024]
+    },
+    {
+      id: "bengali-melancholic-1",
+      name: "Bengali Melancholy",
+      description: "Introspective Bengali songs for rainy days.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84cf7af774ae0a979cbc09957e" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX6aTaZa0K6VA" },
+      source: "spotify",
+      language: "bengali",
+      yearRange: [1980, 2024]
     },
     {
       id: "youtube-melancholic-1",
@@ -523,6 +762,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       source: "spotify",
       language: "english",
       yearRange: [1980, 2024]
+    },
+    {
+      id: "hindi-intense-1",
+      name: "Hindi Rock Anthems",
+      description: "Powerful Hindi rock songs that will energize you.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84c8a809b622d4514468a6b4b4" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM" },
+      source: "spotify",
+      language: "hindi",
+      yearRange: [1990, 2024]
     },
     {
       id: "youtube-intense-1",
@@ -557,6 +806,16 @@ const mockPlaylists: Record<string, Playlist[]> = {
       youtubeId: "PLVT9Yp_BFyp2MJ6Xz_PSo_0nSnJAOVbqJ",
       language: "instrumental",
       yearRange: [2010, 2024]
+    },
+    {
+      id: "carnatic-creative-1",
+      name: "Carnatic Inspiration",
+      description: "South Indian classical music for creative thinking.",
+      images: [{ url: "https://i.scdn.co/image/ab67706c0000da84fe5edb32d10fd8f44224db8c" }],
+      external_urls: { spotify: "https://open.spotify.com/playlist/37i9dQZF1DX2oc9IQAT8wt" },
+      source: "spotify",
+      language: "kannada",
+      yearRange: [1980, 2024]
     }
   ]
 };
