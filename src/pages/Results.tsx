@@ -6,14 +6,20 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Loader from "@/components/Loader";
 import PlaylistCard, { Playlist } from "@/components/PlaylistCard";
+import PlaylistFilters, { FilterValues } from "@/components/PlaylistFilters";
 import { fetchPlaylistsByMood } from "@/utils/spotify";
 import { toast } from "sonner";
 
 const Results = () => {
   const { mood = "" } = useParams<{ mood: string }>();
-  const [playlists, setPlaylists] = useState<Playlist[]>([]);
+  const [allPlaylists, setAllPlaylists] = useState<Playlist[]>([]);
+  const [filteredPlaylists, setFilteredPlaylists] = useState<Playlist[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [filters, setFilters] = useState<FilterValues>({
+    language: "all",
+    yearRange: [1970, 2024],
+  });
 
   // Prettify the mood name
   const moodTitle = mood.charAt(0).toUpperCase() + mood.slice(1);
@@ -27,7 +33,8 @@ const Results = () => {
         setLoading(true);
         setError(null);
         const data = await fetchPlaylistsByMood(mood);
-        setPlaylists(data);
+        setAllPlaylists(data);
+        setFilteredPlaylists(data);
       } catch (err) {
         console.error("Error fetching playlists:", err);
         setError("Failed to load playlists. Please try again later.");
@@ -39,6 +46,35 @@ const Results = () => {
 
     loadPlaylists();
   }, [mood]);
+
+  // Filter playlists when filters change
+  useEffect(() => {
+    if (allPlaylists.length === 0) return;
+
+    const filtered = allPlaylists.filter((playlist) => {
+      // Filter by language
+      if (filters.language !== "all" && playlist.language !== filters.language) {
+        return false;
+      }
+
+      // Filter by year range
+      if (
+        playlist.yearRange &&
+        (playlist.yearRange[0] < filters.yearRange[0] ||
+          playlist.yearRange[1] > filters.yearRange[1])
+      ) {
+        return false;
+      }
+
+      return true;
+    });
+
+    setFilteredPlaylists(filtered);
+  }, [allPlaylists, filters]);
+
+  const handleFilterChange = (newFilters: FilterValues) => {
+    setFilters(newFilters);
+  };
 
   return (
     <div className="page-container">
@@ -79,18 +115,31 @@ const Results = () => {
               </Button>
             </div>
           ) : (
-            <div className="results-container">
-              {playlists.map((playlist) => (
-                <PlaylistCard key={playlist.id} playlist={playlist} mood={mood} />
-              ))}
-            </div>
+            <>
+              <PlaylistFilters onFilterChange={handleFilterChange} />
+              
+              {filteredPlaylists.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground mb-4">No playlists match your filters</p>
+                  <Button onClick={() => setFilters({ language: "all", yearRange: [1970, 2024] })}>
+                    Reset Filters
+                  </Button>
+                </div>
+              ) : (
+                <div className="results-container">
+                  {filteredPlaylists.map((playlist) => (
+                    <PlaylistCard key={playlist.id} playlist={playlist} mood={mood} />
+                  ))}
+                </div>
+              )}
+            </>
           )}
         </div>
       </main>
       
       <footer className="py-6 border-t">
         <div className="container text-center text-muted-foreground text-sm">
-          <p>Powered by Spotify. Made with ♥ by Moodify</p>
+          <p>Powered by Spotify & YouTube. Made with ♥ by Moodify</p>
         </div>
       </footer>
     </div>
