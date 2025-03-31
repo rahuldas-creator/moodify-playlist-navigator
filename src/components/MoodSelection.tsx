@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   Smile, 
@@ -24,6 +24,7 @@ export type Mood = {
   color: string;
   gradient: string;
   description: string;
+  glowColor: string;
 };
 
 const moods: Mood[] = [
@@ -33,7 +34,8 @@ const moods: Mood[] = [
     icon: <Smile className="mood-icon" />,
     color: "bg-mood-happy",
     gradient: "bg-gradient-happy",
-    description: "Uplifting tunes to boost your spirits"
+    description: "Uplifting tunes to boost your spirits",
+    glowColor: "255, 209, 102" // FFD166
   },
   {
     id: "sad",
@@ -41,7 +43,8 @@ const moods: Mood[] = [
     icon: <Frown className="mood-icon" />,
     color: "bg-mood-sad",
     gradient: "bg-gradient-sad",
-    description: "Emotional melodies for your blue moments"
+    description: "Emotional melodies for your blue moments",
+    glowColor: "17, 138, 178" // 118AB2
   },
   {
     id: "nostalgic",
@@ -49,7 +52,8 @@ const moods: Mood[] = [
     icon: <Music className="mood-icon" />,
     color: "bg-mood-nostalgic",
     gradient: "bg-gradient-nostalgic",
-    description: "Blast from the past to reminisce"
+    description: "Blast from the past to reminisce",
+    glowColor: "155, 93, 229" // 9B5DE5
   },
   {
     id: "energized",
@@ -57,7 +61,8 @@ const moods: Mood[] = [
     icon: <Rocket className="mood-icon" />,
     color: "bg-mood-energized",
     gradient: "bg-gradient-energized",
-    description: "High-energy tracks to get you moving"
+    description: "High-energy tracks to get you moving",
+    glowColor: "239, 71, 111" // EF476F
   },
   {
     id: "calm",
@@ -65,7 +70,8 @@ const moods: Mood[] = [
     icon: <CloudSun className="mood-icon" />,
     color: "bg-mood-calm",
     gradient: "bg-gradient-calm",
-    description: "Peaceful sounds to soothe your mind"
+    description: "Peaceful sounds to soothe your mind",
+    glowColor: "6, 214, 160" // 06D6A0
   },
   {
     id: "focused",
@@ -73,7 +79,8 @@ const moods: Mood[] = [
     icon: <Headphones className="mood-icon" />,
     color: "bg-mood-focused",
     gradient: "bg-gradient-focused",
-    description: "Concentration-enhancing soundtracks"
+    description: "Concentration-enhancing soundtracks",
+    glowColor: "7, 59, 76" // 073B4C
   },
   {
     id: "romantic",
@@ -81,7 +88,8 @@ const moods: Mood[] = [
     icon: <Heart className="mood-icon" />,
     color: "bg-mood-romantic",
     gradient: "bg-gradient-romantic",
-    description: "Love songs for heartfelt moments"
+    description: "Love songs for heartfelt moments",
+    glowColor: "232, 74, 95" // e84a5f
   },
   {
     id: "relaxed",
@@ -89,7 +97,8 @@ const moods: Mood[] = [
     icon: <Waves className="mood-icon" />,
     color: "bg-mood-relaxed",
     gradient: "bg-gradient-relaxed",
-    description: "Laid-back tunes for unwinding"
+    description: "Laid-back tunes for unwinding",
+    glowColor: "90, 170, 149" // 5aaa95
   },
   {
     id: "groovy",
@@ -97,7 +106,8 @@ const moods: Mood[] = [
     icon: <Music2 className="mood-icon" />,
     color: "bg-mood-groovy",
     gradient: "bg-gradient-groovy",
-    description: "Rhythmic beats to get in the groove"
+    description: "Rhythmic beats to get in the groove",
+    glowColor: "249, 199, 79" // f9c74f
   },
   {
     id: "melancholic",
@@ -105,7 +115,8 @@ const moods: Mood[] = [
     icon: <Cloud className="mood-icon" />,
     color: "bg-mood-melancholic",
     gradient: "bg-gradient-melancholic",
-    description: "Reflective music for contemplative times"
+    description: "Reflective music for contemplative times",
+    glowColor: "87, 117, 144" // 577590
   },
   {
     id: "intense",
@@ -113,7 +124,8 @@ const moods: Mood[] = [
     icon: <Flame className="mood-icon" />,
     color: "bg-mood-intense",
     gradient: "bg-gradient-intense",
-    description: "Powerful tracks for strong emotions"
+    description: "Powerful tracks for strong emotions",
+    glowColor: "214, 40, 40" // d62828
   },
   {
     id: "creative",
@@ -121,7 +133,8 @@ const moods: Mood[] = [
     icon: <Palette className="mood-icon" />,
     color: "bg-mood-creative",
     gradient: "bg-gradient-creative",
-    description: "Inspiring sounds to boost creativity"
+    description: "Inspiring sounds to boost creativity",
+    glowColor: "138, 201, 38" // 8ac926
   },
 ];
 
@@ -151,6 +164,34 @@ const MoodSelection = () => {
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [hoveredMood, setHoveredMood] = useState<string | null>(null);
   const navigate = useNavigate();
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Mouse move effect handler for the cards
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    const card = cardsRef.current[index];
+    if (!card) return;
+    
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate percentage position
+    const xPercent = Math.floor((x / rect.width) * 100);
+    const yPercent = Math.floor((y / rect.height) * 100);
+    
+    // Apply the custom properties
+    card.style.setProperty('--x', `${xPercent}%`);
+    card.style.setProperty('--y', `${yPercent}%`);
+  };
+  
+  // Reset card effect on mouse leave
+  const handleMouseLeave = (index: number) => {
+    const card = cardsRef.current[index];
+    if (card) {
+      card.style.setProperty('--x', '50%');
+      card.style.setProperty('--y', '50%');
+    }
+  };
 
   const handleMoodSelect = (mood: Mood) => {
     setSelectedMood(mood.id);
@@ -158,6 +199,11 @@ const MoodSelection = () => {
       navigate(`/results/${mood.id}`);
     }, 600);
   };
+
+  // Initialize card refs
+  useEffect(() => {
+    cardsRef.current = cardsRef.current.slice(0, moods.length);
+  }, [moods.length]);
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -181,23 +227,35 @@ const MoodSelection = () => {
         initial="hidden"
         animate="visible"
       >
-        {moods.map((mood) => (
+        {moods.map((mood, index) => (
           <motion.div
             key={mood.id}
+            ref={el => cardsRef.current[index] = el}
             variants={itemVariants}
-            className={`mood-card glass-effect group ${selectedMood === mood.id ? mood.gradient : ""}`}
+            className={`mood-card ${selectedMood === mood.id ? mood.gradient : ""}`}
             onClick={() => handleMoodSelect(mood)}
             onMouseEnter={() => setHoveredMood(mood.id)}
-            onMouseLeave={() => setHoveredMood(null)}
+            onMouseLeave={() => {
+              setHoveredMood(null);
+              handleMouseLeave(index);
+            }}
+            onMouseMove={(e) => handleMouseMove(e, index)}
+            style={{ 
+              '--glow-color': mood.glowColor 
+            } as React.CSSProperties}
             whileHover={{ 
               scale: 1.05, 
-              boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
+              boxShadow: "0 20px 35px rgba(0,0,0,0.1)",
               transition: { duration: 0.2 }
             }}
             whileTap={{ scale: 0.98 }}
           >
+            {/* Glow effect */}
+            <div className="mood-card-glow"></div>
+            
+            {/* Icon wrapper */}
             <motion.div 
-              className={`rounded-full p-4 transition-all duration-300 ${
+              className={`mood-icon-wrapper ${
                 selectedMood === mood.id 
                   ? "bg-white/20" 
                   : hoveredMood === mood.id 
@@ -205,16 +263,20 @@ const MoodSelection = () => {
                     : "bg-secondary"
               }`}
               whileHover={{ 
-                rotate: [0, -10, 10, -10, 0],
+                rotate: [0, -10, 10, -5, 0],
                 transition: { duration: 0.5 }
               }}
             >
               {mood.icon}
             </motion.div>
-            <h3 className={`text-lg font-medium mt-2 ${selectedMood === mood.id ? "text-white" : ""}`}>
+            
+            {/* Title */}
+            <h3 className={`mood-title ${selectedMood === mood.id ? "text-white" : ""}`}>
               {mood.name}
             </h3>
-            <p className={`text-xs text-center mt-1 opacity-80 ${selectedMood === mood.id ? "text-white/80" : "text-muted-foreground"}`}>
+            
+            {/* Description */}
+            <p className={`mood-description ${selectedMood === mood.id ? "text-white/80" : "text-muted-foreground"}`}>
               {mood.description}
             </p>
             

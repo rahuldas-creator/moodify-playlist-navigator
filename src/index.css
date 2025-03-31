@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,6 +54,67 @@
     @apply bg-white/70 hover:shadow-xl hover:-translate-y-2;
     @apply border border-border hover:border-primary/20;
     box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    
+    backdrop-filter: blur(12px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .mood-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 rounded-xl transition-opacity duration-300;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+  }
+  
+  .mood-card:hover::before {
+    @apply opacity-100;
+  }
+  
+  .mood-icon-wrapper {
+    @apply relative rounded-full p-4 transition-all duration-300 flex items-center justify-center z-10;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .mood-card:hover .mood-icon-wrapper {
+    transform: translateZ(20px) rotateY(10deg) rotateX(-10deg);
+  }
+  
+  .mood-icon {
+    @apply h-14 w-14 opacity-90 transition-all;
+  }
+  
+  .mood-card:hover .mood-icon {
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  }
+  
+  .mood-title {
+    @apply text-lg font-medium mt-2 transition-all duration-300 z-10;
+    transform-style: preserve-3d;
+  }
+  
+  .mood-card:hover .mood-title {
+    transform: translateZ(15px);
+  }
+  
+  .mood-description {
+    @apply text-xs text-center mt-1 opacity-80 transition-all duration-300 z-10;
+    transform-style: preserve-3d;
+  }
+  
+  .mood-card:hover .mood-description {
+    transform: translateZ(10px);
+  }
+  
+  .mood-card-glow {
+    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300;
+    background: radial-gradient(circle at center, rgba(var(--glow-color, 155, 81, 224), 0.3) 0%, rgba(var(--glow-color, 155, 81, 224), 0) 70%);
+    pointer-events: none;
+  }
+  
+  .mood-card:hover .mood-card-glow {
+    @apply opacity-100;
   }
   
   .playlist-card {
