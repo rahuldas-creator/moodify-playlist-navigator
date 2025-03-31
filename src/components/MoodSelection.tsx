@@ -156,27 +156,27 @@ const MoodSelection = () => {
     setSelectedMood(mood.id);
     setTimeout(() => {
       navigate(`/results/${mood.id}`);
-    }, 500);
+    }, 600);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-8">
+    <div className="flex flex-col items-center justify-center">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display">
           <span className="gradient-text">How are you feeling today?</span>
-        </h1>
+        </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Your emotions are the soundtrack to your life. Select your current mood and discover the perfect playlist to accompany your journey.
         </p>
       </motion.div>
       
       <motion.div 
-        className="mood-container"
+        className="mood-container pb-12"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -185,33 +185,60 @@ const MoodSelection = () => {
           <motion.div
             key={mood.id}
             variants={itemVariants}
-            className={`mood-card ${selectedMood === mood.id ? mood.gradient : ""}`}
+            className={`mood-card glass-effect group ${selectedMood === mood.id ? mood.gradient : ""}`}
             onClick={() => handleMoodSelect(mood)}
             onMouseEnter={() => setHoveredMood(mood.id)}
             onMouseLeave={() => setHoveredMood(null)}
             whileHover={{ 
               scale: 1.05, 
-              boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+              boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
               transition: { duration: 0.2 }
             }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div 
-              className={`rounded-full p-3 transition-all duration-300 ${
+            <motion.div 
+              className={`rounded-full p-4 transition-all duration-300 ${
                 selectedMood === mood.id 
                   ? "bg-white/20" 
                   : hoveredMood === mood.id 
                     ? "bg-secondary/80" 
                     : "bg-secondary"
               }`}
+              whileHover={{ 
+                rotate: [0, -10, 10, -10, 0],
+                transition: { duration: 0.5 }
+              }}
             >
               {mood.icon}
-            </div>
-            <h3 className={`text-lg font-medium ${selectedMood === mood.id ? "text-white" : ""}`}>
+            </motion.div>
+            <h3 className={`text-lg font-medium mt-2 ${selectedMood === mood.id ? "text-white" : ""}`}>
               {mood.name}
             </h3>
             <p className={`text-xs text-center mt-1 opacity-80 ${selectedMood === mood.id ? "text-white/80" : "text-muted-foreground"}`}>
               {mood.description}
             </p>
+            
+            {/* Animated indicator for hover state */}
+            <motion.div 
+              className={`absolute bottom-0 left-0 h-1 bg-accent transition-all duration-300 ${
+                hoveredMood === mood.id && selectedMood !== mood.id ? "opacity-100" : "opacity-0"
+              }`}
+              initial={{ width: 0 }}
+              animate={{ 
+                width: hoveredMood === mood.id && selectedMood !== mood.id ? "100%" : "0%"
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            
+            {/* Pulse animation on selection */}
+            {selectedMood === mood.id && (
+              <motion.div
+                className="absolute inset-0 rounded-xl bg-white"
+                initial={{ opacity: 0.5, scale: 1 }}
+                animate={{ opacity: 0, scale: 1.5 }}
+                transition={{ duration: 0.8 }}
+              />
+            )}
           </motion.div>
         ))}
       </motion.div>

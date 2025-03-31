@@ -43,8 +43,8 @@
   body {
     @apply bg-background text-foreground font-sans;
     background-image: 
-      radial-gradient(at 100% 0%, hsla(260, 90%, 99%, 0.2) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, hsla(260, 90%, 99%, 0.2) 0px, transparent 50%);
+      radial-gradient(at 100% 0%, hsla(260, 90%, 99%, 0.4) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(260, 90%, 99%, 0.4) 0px, transparent 50%);
     background-attachment: fixed;
   }
 }
@@ -52,7 +52,7 @@
 @layer components {
   .mood-card {
     @apply relative flex flex-col items-center justify-center gap-4 p-6 rounded-xl transition-all duration-300 ease-in-out cursor-pointer overflow-hidden;
-    @apply bg-white hover:shadow-xl hover:-translate-y-2;
+    @apply bg-white/70 hover:shadow-xl hover:-translate-y-2;
     @apply border border-border hover:border-primary/20;
     box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
   }
@@ -112,6 +112,18 @@
   .rotate-slow {
     animation: rotate 20s linear infinite;
   }
+  
+  .hero-gradient {
+    background: linear-gradient(120deg, 
+      rgba(155, 81, 224, 0.15) 0%, 
+      rgba(106, 94, 238, 0.1) 25%, 
+      rgba(0, 0, 0, 0) 50%,
+      rgba(106, 94, 238, 0.1) 75%, 
+      rgba(155, 81, 224, 0.15) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+  }
 }
 
 @keyframes pulse-soft {
@@ -144,6 +156,18 @@
 }
 
 @keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientMove {
   0% {
     background-position: 0% 50%;
   }
