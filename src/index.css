@@ -42,18 +42,25 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    background-image: 
+      radial-gradient(at 100% 0%, hsla(260, 90%, 99%, 0.2) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(260, 90%, 99%, 0.2) 0px, transparent 50%);
+    background-attachment: fixed;
   }
 }
 
 @layer components {
   .mood-card {
     @apply relative flex flex-col items-center justify-center gap-4 p-6 rounded-xl transition-all duration-300 ease-in-out cursor-pointer overflow-hidden;
-    @apply bg-white hover:shadow-xl hover:-translate-y-1;
+    @apply bg-white hover:shadow-xl hover:-translate-y-2;
     @apply border border-border hover:border-primary/20;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
   }
   
   .playlist-card {
-    @apply flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-all duration-300;
+    @apply flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm hover:shadow-xl transition-all duration-300;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
   }
   
   .playlist-image {
@@ -78,5 +85,72 @@
   
   .gradient-text {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  .filter-pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer transition-colors;
+  }
+
+  .animated-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-primary after:transition-transform after:duration-300;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/50 border border-white/30 shadow-lg;
+  }
+
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  .pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  .rotate-slow {
+    animation: rotate 20s linear infinite;
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

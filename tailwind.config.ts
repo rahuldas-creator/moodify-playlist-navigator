@@ -78,6 +78,10 @@ export default {
 					creative: "#8ac926"
 				}
 			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				display: ['Poppins', 'sans-serif'],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -115,13 +119,25 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'gradient-move': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'morphing': {
+					'0%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
+					'50%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' },
+					'100%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'gradient-move': 'gradient-move 15s ease infinite',
+				'morphing': 'morphing 8s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-happy': 'linear-gradient(135deg, #FFD166 0%, #FFECB3 100%)',
@@ -135,7 +151,8 @@ export default {
 				'gradient-groovy': 'linear-gradient(135deg, #f9c74f 0%, #faedca 100%)',
 				'gradient-melancholic': 'linear-gradient(135deg, #577590 0%, #a3cef1 100%)',
 				'gradient-intense': 'linear-gradient(135deg, #d62828 0%, #f77f00 100%)',
-				'gradient-creative': 'linear-gradient(135deg, #8ac926 0%, #e9f5db 100%)'
+				'gradient-creative': 'linear-gradient(135deg, #8ac926 0%, #e9f5db 100%)',
+				'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")"
 			}
 		}
 	},
