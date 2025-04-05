@@ -20,6 +20,7 @@ const queryClient = new QueryClient({
   },
 });
 
+// good code
 // Making sure the App component is a proper React functional component
 const App: React.FC = () => {
   return (
